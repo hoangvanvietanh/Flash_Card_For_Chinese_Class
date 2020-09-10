@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Ôn tập</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            /* font: 500 1.5rem 'Avenir Next', sans-serif; */
+            color: rgba(0, 0, 0, .75);
+            background: #e1e3e5;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .row.no-gutters {
+            margin: -5px !important;
+        }
+
+        .row.no-gutters>* {
+            padding: 5px !important;
+        }
+
+        .flipper {
+            height: 0;
+            padding-bottom: 100%;
+            position: relative;
+            -webkit-perspective: 800px;
+            -ms-perspective: 800px;
+            perspective: 800px;
+        }
+
+        @media (min-width: 576px) {
+
+            .ratio-not-1-1 {
+                padding-bottom: calc(50% - 5px);
+            }
+
+        }
+
+        .flipper-card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .flipper-front,
+        .flipper-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            background: #c1c3c5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flipper-back {
+            background: #fff;
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+        .flipper-card.flipper-is-flipped {
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Ôn tập</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li> -->
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+        </div>
+    </nav>
+    <section>
+        <div class="container py-5">
+            <div class="form-group">
+                <label for="topic">Chọn chủ đề</label>
+                <select class="form-control" name="" onchange="changeTopic()" id="topic">
+                    <option value="Số">Số</option>
+                    <option value="Đất nước">Đất nước</option>
+                    <option value="Học tập">Học tập</option>
+                </select>
+            </div>
+            <div class="row no-gutters" id="content">
+                <!-- <div class="col-6 col-sm-4 col-lg-2">
+                    <div class="flipper">
+                        <div class="flipper-card">
+                            <div class="flipper-front">Front5</div>
+                            <div class="flipper-back">Back5</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script>
+
+        var data = data;
+        changeTopic();
+        function changeTopic() {
+            console.log(data)
+            var html = "";
+            var color = ['#BAD3ED', '#C0EDBA', '#BAEDD3', '#F7AFB3', '#F6BFB1', '#abe4ff', '#F7E4AF']
+            data.forEach(data => {
+                if (data.topic === document.getElementById('topic').value) {
+                    data.words.forEach(value => {
+                        html += `<div class="col-6 col-sm-4 col-lg-2">
+                    <div class="flipper" >
+                        <div class="flipper-card">
+                            <div class="flipper-front" onclick="playAudio('${value.sound}')" style="background: ${color[Math.floor(Math.random() * color.length)]};" ><h1>${value.word}</h1><br><p>text</p></div>
+                            <div class="flipper-back" ><strong>${value.meaning}</strong></div>
+                        </div>
+                    </div>
+                </div>`
+                    });
+                }
+            })
+
+            content.innerHTML = html;
+            $(document).ready(function () {
+                $('.flipper').on('click', function () {
+                    $(this).find('.flipper-card').toggleClass('flipper-is-flipped');
+                });
+            });
+        }
+
+        function playAudio(url) {
+            console.log(url)
+            //new Audio(url).play();
+        }
+    </script>
+</body>
+
+</html>
